@@ -1,29 +1,35 @@
-.big-button {
-    font-size: 250px;      
-    padding: 140px 100px;   
-    border-radius: 12px;    
-    border: 3px solid white;          
-    background-color: #292a74; 
-    color: white;             
-    cursor: pointer;          
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    transition: background-color 1s ease, transform 0.2s ease, box-shadow 0.2s ease; 
-  }
-  
-  .big-button:hover {
-    transform: scale(1.1); 
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
-  }
-  
-  .big-button.green {
-    background-color: #28a745; 
-  }
-  
-  .center-container {
+.center-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;           
+    margin: 0;
   }
   
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .big-button {
+    font-size: 250px;
+    padding: 140px 100px;
+    border-radius: 12px;
+    border: 3px solid white;
+    background-color: #292a74;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 1s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 20px; /* Space between main and mute button */
+  }
+  
+  .big-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .big-button.green {
+    background-color: #28a745;
+  }

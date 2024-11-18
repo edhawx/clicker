@@ -28,6 +28,12 @@ body, html {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.App-header h1 {
+  margin-bottom: 10px;
 }
 
 .App-link {

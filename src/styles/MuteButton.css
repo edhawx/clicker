@@ -1,0 +1,16 @@
+.mute-button {
+    width: 100px; /* Twice the original size */
+    height: 100px; /* Twice the original size */
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Adjust icon size */
+    cursor: pointer;
+  }
+  
+  .mute-button:hover {
+    background-color: #bbb;
+  }

@@ -1,48 +1,55 @@
 import React, { useState, useEffect } from "react";
 import "../styles/MyButton.css";
+import "../styles/MuteButton.css";
 
 function MyButton() {
   const [count, setCount] = useState(0);
-  const [isGreen, setIsGreen] = useState(false); 
+  const [isGreen, setIsGreen] = useState(false);
   const [clickSound, setClickSound] = useState(null);
   const [snapSound, setSnapSound] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
 
-
-  useEffect(()=>{
-    const clickSound = new Audio(require("../assets/sounds/click.wav"));
-    const snapSound = new Audio(require("../assets/sounds/snap.wav"));
+  useEffect(() => {
+    const clickAudio = new Audio(require("../assets/sounds/click.wav"));
+    const snapAudio = new Audio(require("../assets/sounds/snap.wav"));
     setClickSound(clickAudio);
     setSnapSound(snapAudio);
 
-    return()=>{
-        clickAudio.src ="";
-        snapAudio.src ="";
+    return () => {
+      clickAudio.src = "";
+      snapAudio.src = "";
     };
   }, []);
 
-
   const handleClick = () => {
     if (count === 9) {
-      if(snapSound) snapSound.play();
-      setIsGreen(true); 
+      setIsGreen(true);
       setTimeout(() => {
-        setIsGreen(false); 
+        setIsGreen(false);
       }, 1000);
+      if (!isMuted && snapSound) snapSound.play();
     } else {
-      if (clickSound) clickSound.play();
+      if (!isMuted && clickSound) clickSound.play();
     }
-
     setCount((prevCount) => (prevCount + 1) % 10);
   };
 
   return (
     <div className="center-container">
-      <button
-        className={`big-button ${isGreen ? "green" : ""}`}
-        onClick={handleClick}
-      >
-        {count}
-      </button>
+      <div className="button-wrapper">
+        <button
+          className={`big-button ${isGreen ? "green" : ""}`}
+          onClick={handleClick}
+        >
+          {count}
+        </button>
+        <button
+          className="mute-button"
+          onClick={() => setIsMuted(!isMuted)}
+        >
+          {isMuted ? "🔈" : "🔇"}
+        </button>
+      </div>
     </div>
   );
 }
